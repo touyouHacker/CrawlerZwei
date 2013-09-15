@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<W2FSET>
+	<Database><!--&はXMLでは&amp;で表記する必要があります。-->
+		<URL>jdbc:mysql://localhost/test?useUnicode=true&amp;characterEncoding=SJIS</URL>
+		<User>root</User>
+		<Password></Password>
+	</Database>
+
+	<FrameWorkSystem></FrameWorkSystem>
+
+	<Nichannel>
+		<ITA>
+			<URL>http://engawa.2ch.net/poverty/</URL>
+		</ITA>
+	</Nichannel>
+
+	<SubjectGet>
+		<SaveDirectory>/Users/hoge/czwei/subject</SaveDirectory>
+		<!--  10分 /600000ms -->
+		<LoopTimeMinute>10</LoopTimeMinute>
+			<HTTP>
+				<UserAgent>Monazilla/1.00 (CZwei/1.0)</UserAgent>
+				<ReTryDownload>0</ReTryDownload>
+				<ConnectTimeout>0</ConnectTimeout>
+				<ReadTimeout>0</ReadTimeout>
+			</HTTP>
+	</SubjectGet>
+
+	<DatDownloder>
+		<SaveDirectory>/Users/hoge/czwei/DatDownloder</SaveDirectory>
+		<!--  60分/3600000ms -->
+		<LoopTimeMinute>60</LoopTimeMinute>
+			<HTTP>
+				<UserAgent>Monazilla/1.00 (CZwei/1.0)</UserAgent>
+				<ReTryDownload>0</ReTryDownload>
+				<ConnectTimeout>0</ConnectTimeout>
+				<ReadTimeout>0</ReadTimeout>
+			</HTTP>
+	</DatDownloder>
+
+	<ContentsDownloder>
+		<SaveDirectory>/Users/hoge/czwei/Contents</SaveDirectory>
+		<!--  30分/1800000ms -->
+		<LoopTimeMinute>30</LoopTimeMinute>
+		<HTTP>
+			<UserAgent>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/536.30.1 (KHTML, like Gecko) Version/6.0.5 Safari/536.30.1</UserAgent>
+			<ReTryDownload>1</ReTryDownload>
+			<!-- 1分 -->
+			<ConnectTimeout>360000</ConnectTimeout>
+			<!-- 2分 -->
+			<ReadTimeout>720000</ReadTimeout>
+		</HTTP>
+	</ContentsDownloder>
+
+<RemoteControl>
+	<Mail>
+		<!-- コマンドを許可する＋返信先のメールアドレス -->
+		<ReceptMailAdress>username@keitaicaria.ne.jp</ReceptMailAdress>
+		<!-- 受信プロトコルを選択します POP or IMAP-->
+		<ReceiveMailProtocol>POP</ReceiveMailProtocol>
+		<!-- 受信する間隔を設定します 5-10分程度を推奨 -->
+		<MailSleepTime>600000</MailSleepTime>
+	<SMTP>
+		<Host>smtp.gmail.com</Host>
+		<Port>587</Port>
+		<UserName>XXXXXXX@gmail.com</UserName>
+		<Password>password</Password>
+		<SSL>1</SSL>
+	</SMTP>
+	<POP>
+		<Host>pop.gmail.com</Host>
+		<Port>995</Port>
+		<UserName>username</UserName>
+		<Password>password</Password>
+		<SSL>1</SSL>
+	</POP>
+	<IMAP>
+		<Host></Host>
+		<Port></Port>
+		<UserName></UserName>
+		<Password></Password>
+		<SSL>1</SSL>
+	</IMAP>
+	</Mail>
+</RemoteControl>
+</W2FSET>
+

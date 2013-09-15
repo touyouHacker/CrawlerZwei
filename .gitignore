@@ -1,0 +1,8 @@
+.project
+.classpath
+.metadata/
+.settings/
+bin/
+private/
+test/
+.DS_Store

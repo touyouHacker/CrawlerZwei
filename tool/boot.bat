@@ -1,0 +1,1 @@
+java -Xmx96m -jar czwei.jar

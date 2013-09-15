@@ -1,0 +1,22 @@
+CREATE TABLE `?` (
+  `CONTENT_ID` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID-PK',
+  `DAT_ID` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'SUBJECTテーブルID',
+  `URL` varchar(2048) DEFAULT NULL COMMENT 'コンテンツURL',
+  `FIRST_HIT_THREAD_NUM` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '最初にヒットしたスレの番号(1-1001)',
+  `CONTENT_SIZE` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT 'ファイルサイズ',
+  `EXE_FLAG` int(11) NOT NULL DEFAULT '0' COMMENT '実行 成功可否フラグ(初期値=0; 成功 1; 失敗 1++ ; 実行不要 -1)',
+  `HTTP_STATE` varchar(3) DEFAULT NULL COMMENT 'HTTP 結果',
+  `REGEX_HIT_COUNT` int(10) unsigned NOT NULL COMMENT 'URL抽出重複ＨＩＴカウント',
+  `URL_REGEX_FILTER` varchar(80) DEFAULT NULL COMMENT 'URL抽出フィルタエンジン名',
+  `FILTER_SETNAME` varchar(80) DEFAULT NULL COMMENT 'URL抽出フィルタ設定ファイル名',
+  `SAVE_DIRECTORY` varchar(2048) DEFAULT NULL COMMENT '保存ディレクトリ',
+  `CREATEDATE` datetime NOT NULL COMMENT '作成日時',
+  `CREATE_USER` varchar(40) DEFAULT NULL COMMENT '作成ユーザー(IP/OS-UserName=NodeIdなど)',
+  `RENEWDATE` datetime NOT NULL COMMENT '更新日時',
+  `RENEW_USER` varchar(40) DEFAULT NULL COMMENT '更新ユーザー',
+  `FILE_NAME` varchar(255) DEFAULT NULL COMMENT 'コンテンツ_ファイル名(Indexで使用)',
+  `DOWN_WORKER_ID` varchar(40) DEFAULT NULL COMMENT 'ダウンロードをするノード名（デフォルトNULL,それ以外は別ノード）',
+  `RESURL_COMMENT` varchar(2048) DEFAULT NULL COMMENT 'SKIPコンテンツのためのコメント(BIGGER,2ch-BE-gif,decoi)',
+  PRIMARY KEY (`CONTENT_ID`),
+  KEY `index_2` (`FILE_NAME`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
