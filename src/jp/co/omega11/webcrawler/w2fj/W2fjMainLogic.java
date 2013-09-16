@@ -46,7 +46,8 @@ public class W2fjMainLogic {
 	private boolean noThread;
 
 	// コマンド受付機構のスレッド実行可否フラグ
-	private boolean controlFromConsole_ExeFlag;
+	// TODO とりあえずTrue
+	private boolean controlFromConsole_ExeFlag = true;
 	private boolean controlFromMail_ExeFlag;
 
 	public W2fjMainLogic() {
