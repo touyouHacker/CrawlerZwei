@@ -47,6 +47,12 @@ Decide setting.xml file
 	java -Xmx96m -jar czwei.jar -F settingNplus.xml
 
 
+##Compile
+Use Eclipse
+
+Main Class = jp.co.omega11.webcrawler.w2fj.MainBoot
+
+
 ##Licence
 *GPL v2*
 
