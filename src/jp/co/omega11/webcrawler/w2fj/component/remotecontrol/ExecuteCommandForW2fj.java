@@ -73,8 +73,11 @@ public class ExecuteCommandForW2fj implements IExecuteCommand {
 							.getLastWorkTime()));
 
 			// コンポーネント内部の状態の文字列表現
-			addLine(rootInfo.getSubjectInfo().getComponentInfo().toString());
-
+			if(rootInfo.getSubjectInfo().getComponentInfo() == null) {
+				addLine("NOT RUN !");
+			}	else {
+				addLine(rootInfo.getSubjectInfo().getComponentInfo().toString());
+			}
 		}
 
 		addLine("------");
@@ -91,7 +94,11 @@ public class ExecuteCommandForW2fj implements IExecuteCommand {
 							.getLastWorkTime()));
 
 			// コンポーネント内部の状態の文字列表現
-			addLine(rootInfo.getDatInfo().getComponentInfo().toString());
+			if(rootInfo.getDatInfo().getComponentInfo() == null) {
+				addLine("Not Run!");
+			} else {
+				addLine(rootInfo.getDatInfo().getComponentInfo().toString());
+			}
 		}
 		addLine("------");
 		if (rootInfo.getContentsInfo() != null) {
@@ -107,7 +114,11 @@ public class ExecuteCommandForW2fj implements IExecuteCommand {
 							.getLastWorkTime()));
 
 			// コンポーネント内部の状態の文字列表現
-			addLine(rootInfo.getContentsInfo().getComponentInfo().toString());
+			if(rootInfo.getContentsInfo().getComponentInfo() == null){
+				addLine("Not Run!");
+			} else {
+				addLine(rootInfo.getContentsInfo().getComponentInfo().toString());
+			}
 		}
 		addLine("--------------------------------------------------------");
 
