@@ -4,7 +4,9 @@
 package jp.co.omega11.universal.util.file;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.InputStreamReader;
 
 import jp.co.omega11.universal.util.log.Loger;
 
@@ -28,18 +30,21 @@ public final class TextUtil {
 		int count = 0;
 
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(fileName));
-
+			InputStreamReader isr = new InputStreamReader(new FileInputStream(
+					fileName),"SJIS");
+			BufferedReader br = new BufferedReader(isr);
 			while (br.readLine() != null) {
 				count++;
 			}
 
-
+			br.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			Loger.print(e);
 			return -1;
 		}
+		
+		
 		return count;
 	}
 

@@ -89,7 +89,10 @@ public class DatDownloder extends AbstrarctComponent {
 		// HTTP DAT ダウンロード
 
 		for (SubjectTextEntity subjectTextEntity : subjectTextEntitys) {
-
+			
+			// TODO 解析のため
+			Loger.flushAll();
+			
 			// wcを書き換える前に前のwcを保持
 			wcHash.put(Integer.valueOf(subjectTextEntity.getId()), Integer
 					.valueOf(subjectTextEntity.getDownloaded()));
