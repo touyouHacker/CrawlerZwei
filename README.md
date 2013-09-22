@@ -45,7 +45,10 @@ JVM decide memory
 Decide setting.xml file
 
 	java -Xmx96m -jar czwei.jar -F settingNplus.xml
-
+	
+View GC (Use Java Option)
+	
+	java -verbose:gc -jar czwei.jar -F setting_vip.xml
 
 ##Compile
 ###Use Eclipse
