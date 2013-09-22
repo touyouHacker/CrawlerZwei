@@ -87,11 +87,10 @@ public class DatDownloder extends AbstrarctComponent {
 
 	private void download(List<SubjectTextEntity> subjectTextEntitys) {
 		// HTTP DAT ダウンロード
+		
+		int counter = 0;
 
 		for (SubjectTextEntity subjectTextEntity : subjectTextEntitys) {
-			
-			// TODO 解析のため
-			Log.flushAll();
 			
 			// wcを書き換える前に前のwcを保持
 			wcHash.put(Integer.valueOf(subjectTextEntity.getId()), Integer
@@ -159,7 +158,10 @@ public class DatDownloder extends AbstrarctComponent {
 			 * http://bg20.2ch.net/test/r.so/society6.2ch.net/gline/1169964276/
 			 * からdatを取得できます。 ただし、差分取得はできません。
 			 */
-
+			counter++;
+			Log.print("counter=" + counter);
+			// TODO 解析のため
+			Log.flushAll();
 		}
 
 	}
