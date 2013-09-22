@@ -9,14 +9,7 @@ import java.util.Map;
  */
 public class HttpOptionAndUrl {
 
-	private String url;
-	
-	// 出力フォルダ
-	private String outFolder;
-	
-	// ファイル名
-	private String filename;
-	
+	private String url;	
 	
 	private Map<String,String> httpOptionMap;
 	

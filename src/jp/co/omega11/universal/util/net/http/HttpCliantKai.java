@@ -83,7 +83,7 @@ public class HttpCliantKai {
 
 		if (ifmodified != 0) {
 
-			Date date = new Date(ifmodified);
+			//Date date = new Date(ifmodified);
 
 			String stMidified = ""; // TODO Calenderかなんかで整形　2chの場合アメリカ時間にしないとだめ？
 

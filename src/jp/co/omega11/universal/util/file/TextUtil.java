@@ -65,7 +65,10 @@ public final class TextUtil {
 				oneLine = null;
 				oneLine = br.readLine();
 
-				if(oneLine == null){return fileText;}
+				if(oneLine == null){
+					br.close();
+					return fileText;
+				}
 
 				fileText += oneLine;
 			}

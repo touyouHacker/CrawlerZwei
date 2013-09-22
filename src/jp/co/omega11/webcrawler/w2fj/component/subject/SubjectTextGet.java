@@ -90,6 +90,7 @@ public class SubjectTextGet extends AbstrarctComponent{
 					fo.write(buf, 0, num);
 
 				}
+				di.close();
 			}
 
 			fo.close();

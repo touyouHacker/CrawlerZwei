@@ -6,7 +6,6 @@ package jp.co.omega11.webcrawler.w2fj.component.dat.extraction;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -17,10 +16,9 @@ import java.util.regex.Pattern;
 import jp.co.omega11.universal.util.log.Log;
 import jp.co.omega11.webcrawler.w2fj.entity.ContentsEntity;
 
-
 /**
  * @author Wizard1 2009
- *
+ * 
  */
 public class ExtractionNormal implements IDatToContentsUrl {
 
@@ -35,10 +33,14 @@ public class ExtractionNormal implements IDatToContentsUrl {
 		return null;
 	}
 
-/** ファイルの指定された行数からURLを抽出します
- * @param datFilePat 抽出対象のファイル（フルパス）
- * @param line 抽出対象開始行数
- */
+	/**
+	 * ファイルの指定された行数からURLを抽出します
+	 * 
+	 * @param datFilePat
+	 *            抽出対象のファイル（フルパス）
+	 * @param line
+	 *            抽出対象開始行数
+	 */
 	public List<ContentsEntity> extraction(String datFilePat, int line) {
 
 		Log.print("extraction " + line + " " + datFilePat);
@@ -54,10 +56,11 @@ public class ExtractionNormal implements IDatToContentsUrl {
 		Matcher matcher = null;
 
 		try {
-			//BufferedReader br = new BufferedReader(new FileReader(datFilePat));
+			// BufferedReader br = new BufferedReader(new
+			// FileReader(datFilePat));
 
 			InputStreamReader isr = new InputStreamReader(new FileInputStream(
-					datFilePat),"SJIS");
+					datFilePat), "SJIS");
 
 			BufferedReader br = new BufferedReader(isr);
 
@@ -70,7 +73,7 @@ public class ExtractionNormal implements IDatToContentsUrl {
 					/**
 					 * 処理の流れ lineの中にttp://が見つかったら contentsEntity をnewして生成
 					 * http:// 形式に成形してURLなのか簡単な検証 検証をとおればリストにadd ラインをEntityに設定
-					 *
+					 * 
 					 */
 
 					String[] oneLineStringSplits = oneLineString.split("<br>");
@@ -114,12 +117,11 @@ public class ExtractionNormal implements IDatToContentsUrl {
 
 		// TODO youtube/ニコニコも対応
 		/**
-		 * 今期最高OPトップ3　
-CANAAN　ttp://www.youtube.com/watch?v=xbdN3213U9k
-化物語2話　ttp://www.youtube.com/watch?v=euDnt9D8xkk
-化物語4話　ttp://www.youtube.com/watch?v=V-bXn859BK8
-
-@see http://www.nilab.info/zurazure2/000324.html
+		 * 今期最高OPトップ3　 CANAAN　ttp://www.youtube.com/watch?v=xbdN3213U9k
+		 * 化物語2話　ttp://www.youtube.com/watch?v=euDnt9D8xkk
+		 * 化物語4話　ttp://www.youtube.com/watch?v=V-bXn859BK8
+		 * 
+		 * @see http://www.nilab.info/zurazure2/000324.html
 		 */
 
 		Pattern pattern = Pattern.compile("ttp://.*\\.(jpg|png|gif|jpeg|PNG)");
@@ -136,7 +138,7 @@ CANAAN　ttp://www.youtube.com/watch?v=xbdN3213U9k
 
 	/**
 	 * このクラスで共通的なcontentsEntityへの設定項目を設定
-	 *
+	 * 
 	 * @param contentsEntity
 	 */
 	private void commonContentsEntitysSetter(List<ContentsEntity> contentsEntity) {
