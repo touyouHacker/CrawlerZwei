@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.Calendar;
 
 import jp.co.omega11.universal.util.UniversalUtil;
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 import jp.co.omega11.webcrawler.w2fj.component.AbstrarctComponentThread;
 import jp.co.omega11.webcrawler.w2fj.model.systemInfomation.ContentsComponentInfo;
 import jp.co.omega11.webcrawler.w2fj.model.systemInfomation.ThreadComponentInfo;
@@ -36,7 +36,7 @@ public class ContentsDownloderThread extends AbstrarctComponentThread {
 			con = DriverManager.getConnection(setting.getDbURL(), setting
 					.getDbUser(), setting.getDbPass());
 		} catch (SQLException e) {
-			Loger.print("[" + this.getClass().getName() + "] DB接続失敗　→ "
+			Log.print("[" + this.getClass().getName() + "] DB接続失敗　→ "
 					+ e.toString());
 		}
 
@@ -59,17 +59,17 @@ public class ContentsDownloderThread extends AbstrarctComponentThread {
 			if (!contentsDownloder.preExecute()) {
 				// 　処理データがないので待機(DATコンポーネントが動作するのを待つ)
 
-				Loger.print("[ContentsDown] 待機モードへ移行します ,"
+				Log.print("[ContentsDown] 待機モードへ移行します ,"
 						+ setting.getItaname() + " " + loopCount);
 
-				Loger.print("[ContentsDown] " + UniversalUtil.nowDate());
+				Log.print("[ContentsDown] " + UniversalUtil.nowDate());
 
 				// なければSleep
 				try {
 					Thread.sleep(setting.getInvContents().getSleepTime());
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
-					Loger.print(e);
+					Log.print(e);
 					// 無限ループは致命的なのでreturn
 					return;
 				}
@@ -84,13 +84,13 @@ public class ContentsDownloderThread extends AbstrarctComponentThread {
 
 				Runtime runtime = Runtime.getRuntime();
 
-				Loger.print("[ContentsDown] ダウンロード完了 ," + setting.getItaname()
+				Log.print("[ContentsDown] ダウンロード完了 ," + setting.getItaname()
 						+ " " + loopCount);
-				Loger.print("空きメモリ " + runtime.freeMemory());
+				Log.print("空きメモリ " + runtime.freeMemory());
 
-				Loger.print("[ContentsDown] " + UniversalUtil.nowDate());
+				Log.print("[ContentsDown] " + UniversalUtil.nowDate());
 
-				Loger.flushAll();
+				Log.flushAll();
 			}
 
 		}

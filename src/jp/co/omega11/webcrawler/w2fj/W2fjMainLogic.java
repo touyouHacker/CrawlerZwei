@@ -6,7 +6,7 @@ import java.util.List;
 import jp.co.omega11.universal.controller.receivecommand.ReceiveCommandThread;
 import jp.co.omega11.universal.controller.receivecommand.component.console.ControlFromConsole;
 import jp.co.omega11.universal.controller.receivecommand.component.mail.ControlFromMail;
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 import jp.co.omega11.webcrawler.w2fj.component.contents.ContentsDownloderThread;
 import jp.co.omega11.webcrawler.w2fj.component.dat.DatDownloderThread;
 import jp.co.omega11.webcrawler.w2fj.component.remotecontrol.ExecuteCommandForW2fj;
@@ -156,8 +156,8 @@ public class W2fjMainLogic {
 		try {
 			set.setInitialize(set);
 		} catch (Exception e) {
-			Loger.print("初期化処理失敗");
-			Loger.print(e);
+			Log.print("初期化処理失敗");
+			Log.print(e);
 			return;
 		}
 
@@ -176,7 +176,7 @@ public class W2fjMainLogic {
 				Thread.sleep(60000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
-				Loger.print(e);
+				Log.print(e);
 			}
 		}
 
@@ -265,28 +265,28 @@ public class W2fjMainLogic {
 			}
 
 			if("-S".equals(args[i])) {
-				Loger.print("-S・・subjectGetThreadを起動ONにします");
+				Log.print("-S・・subjectGetThreadを起動ONにします");
 				subjectGetThread_ExeFlag = true;
 			}
 
 			if("-D".equals(args[i])) {
-				Loger.print("-D・・datDownloderThread_ExeFlagを起動ONにします");
+				Log.print("-D・・datDownloderThread_ExeFlagを起動ONにします");
 				datDownloderThread_ExeFlag = true;
 			}
 
 			if("-C".equals(args[i])) {
-				Loger.print("-C・・contentsDownloderThread_ExeFlagを起動ONにします");
+				Log.print("-C・・contentsDownloderThread_ExeFlagを起動ONにします");
 				contentsDownloderThread_ExeFlag = true;
 			}
 
 			if("-NP".equals(args[i])) {
-				Loger.print("-NP・・NoParseExe URL抽出→DB登録を初回ループ時に実行しません");
+				Log.print("-NP・・NoParseExe URL抽出→DB登録を初回ループ時に実行しません");
 				set.setNoParseExe(true);
 			}
 
 
 			if("-NT".equals(args[i])) {
-				Loger.print("-NT・・NoThread スレッドコンポーネントを起動しません。初期プロセスのみ実施");
+				Log.print("-NT・・NoThread スレッドコンポーネントを起動しません。初期プロセスのみ実施");
 				noThread = true;
 			}
 
@@ -317,7 +317,7 @@ public class W2fjMainLogic {
 				noThread == false) {
 			// すべてfalseの場合は起動スレッド指定無し= ALL起動とみなす
 
-			Loger.print("起動スレッドが指定されてないため、すべて起動します。");
+			Log.print("起動スレッドが指定されてないため、すべて起動します。");
 			subjectGetThread_ExeFlag = true;
 			datDownloderThread_ExeFlag = true;
 			contentsDownloderThread_ExeFlag = true;

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 import jp.co.omega11.webcrawler.w2fj.entity.ContentsEntity;
 
 
@@ -41,7 +41,7 @@ public class ExtractionNormal implements IDatToContentsUrl {
  */
 	public List<ContentsEntity> extraction(String datFilePat, int line) {
 
-		Loger.print("extraction " + line + " " + datFilePat);
+		Log.print("extraction " + line + " " + datFilePat);
 
 		// ê≥ãKï\åªÇ≈ÇgÇsÇsÇoÇî≤Ç´Ç‹Ç∑
 		List<ContentsEntity> contentsEntitys = new ArrayList<ContentsEntity>();
@@ -95,10 +95,10 @@ public class ExtractionNormal implements IDatToContentsUrl {
 			isr.close();
 
 		} catch (FileNotFoundException e) {
-			Loger.print(e);
+			Log.print(e);
 			return null;
 		} catch (IOException e) {
-			Loger.print(e);
+			Log.print(e);
 			return null;
 		}
 

@@ -8,7 +8,7 @@ import java.io.Console;
 import jp.co.omega11.universal.controller.receivecommand.AbstractReceiveCommand;
 import jp.co.omega11.universal.controller.receivecommand.IExecuteCommand;
 import jp.co.omega11.universal.controller.receivecommand.model.CommandModel;
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 
 /**
  * @author Wizard1 2009
@@ -27,7 +27,7 @@ public class ControlFromConsole extends AbstractReceiveCommand {
 	public void receive(CommandModel commandModel,
 			IExecuteCommand executeCommand) {
 
-		Loger.print("Console 受信開始");
+		Log.print("Console 受信開始");
 
 		while (true) {
 			String command = console.readLine();
@@ -61,7 +61,7 @@ public class ControlFromConsole extends AbstractReceiveCommand {
 			return true;
 		}
 
-		Loger.print("Console コンソールを初期化できませんでした。");
+		Log.print("Console コンソールを初期化できませんでした。");
 		return false;
 	}
 

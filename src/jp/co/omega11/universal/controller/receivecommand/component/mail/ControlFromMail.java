@@ -5,7 +5,7 @@ import jp.co.omega11.universal.controller.receivecommand.IExecuteCommand;
 import jp.co.omega11.universal.controller.receivecommand.model.CommandModel;
 import jp.co.omega11.universal.controller.receivecommand.model.POP3Model;
 import jp.co.omega11.universal.controller.receivecommand.model.SmtpModel;
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 import jp.co.omega11.universal.util.net.mail.pop.AbstractPop3;
 import jp.co.omega11.universal.util.net.mail.pop.Pop3;
 import jp.co.omega11.universal.util.net.mail.pop.SslPop3;
@@ -69,7 +69,7 @@ public class ControlFromMail extends AbstractReceiveCommand {
 				
 				counter++;
 				
-				Loger.print("Mail 受信開始 " + counter);
+				Log.print("Mail 受信開始 " + counter);
 				
 				AbstractPop3 pop3;
 				AbstractSmtp smtp;
@@ -87,7 +87,7 @@ public class ControlFromMail extends AbstractReceiveCommand {
 				//指定したメールアドレス+件名のとき受信
 				String command = pop3.execute(pop3Model.getReceiveAdress(), pop3Model.getReceiveSubject());
 
-				Loger.print("Mail コマンド受信 " + command);
+				Log.print("Mail コマンド受信 " + command);
 
 				// コマンドがNULLでないときのみ後続処理実行
 				if (command != null) {
@@ -110,14 +110,14 @@ public class ControlFromMail extends AbstractReceiveCommand {
 				}
 
 				// 指定した時間だけスリープします
-				Loger.print("Mail スリープ開始 " +  String.valueOf(sleepTime) + "ms");
+				Log.print("Mail スリープ開始 " +  String.valueOf(sleepTime) + "ms");
 				
 				Thread.sleep(sleepTime);
 
 			}
 
 		} catch (Exception e) {
-			Loger.print(e);
+			Log.print(e);
 			return;
 		}
 	}

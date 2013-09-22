@@ -7,7 +7,7 @@ import java.util.List;
 
 import jp.co.omega11.universal.util.UniversalUtil;
 import jp.co.omega11.universal.util.collections.ListUtil;
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 import jp.co.omega11.universal.util.net.http.HttpCliantKai;
 import jp.co.omega11.universal.util.net.http.HttpHeaderSave;
 import jp.co.omega11.webcrawler.w2fj.component.AbstrarctComponent;
@@ -49,7 +49,7 @@ public class ContentsDownloder extends AbstrarctComponent {
 
 		contentsEntityList = contentsDAO.workTargetSelect(nodeId);
 
-		Loger.print("処理件数 " + contentsEntityList.size());
+		Log.print("処理件数 " + contentsEntityList.size());
 		
 		componentInfo.setDownloadTargetCount(contentsEntityList.size());
 		componentInfo.addAllDownloadTargetCount();
@@ -97,17 +97,17 @@ public class ContentsDownloder extends AbstrarctComponent {
 			// フルパスに修正
 			saveFolderName = set.getContentsFolderFullPath() + "/" + saveFolderName;
 			
-			Loger.print("保存フォルダ名 " + saveFolderName );
+			Log.print("保存フォルダ名 " + saveFolderName );
 			
 			// フォルダの作成(1スレづつ)
 			if (!UniversalUtil.createDirectryExistCheak(saveFolderName)) {
 				// フォルダが作れなかったらスレ名でなくスレッド番号でフォルダ作成
-				Loger.print("フォルダ名 " + saveFolderName + "が作成できないためスレ番号で作成");
+				Log.print("フォルダ名 " + saveFolderName + "が作成できないためスレ番号で作成");
 
 				saveFolderName =  set.getDatFolderFullPath() + "/" + model.getThreadNumber();
 
 				if (!UniversalUtil.createDirectryExistCheak(saveFolderName)) {
-					Loger.print("フォルダ名 " + saveFolderName + "が作成できないため終了");
+					Log.print("フォルダ名 " + saveFolderName + "が作成できないため終了");
 					return;
 				}
 			}
@@ -172,7 +172,7 @@ public class ContentsDownloder extends AbstrarctComponent {
 		try {
 			contentsDAO.update(entity);
 		} catch (SQLException e) {
-			Loger.printSQLException(e);
+			Log.printSQLException(e);
 			retryRegist(entity);
 		}
 	}
@@ -183,7 +183,7 @@ public class ContentsDownloder extends AbstrarctComponent {
 	 */
 	private void retryRegist(ContentsEntity entity){
 		
-		Loger.print(" 更新失敗のためリトライをかけます");
+		Log.print(" 更新失敗のためリトライをかけます");
 		
 		entity.setContentSize(0);
 		entity.setResurlComment("Retry");
@@ -194,7 +194,7 @@ public class ContentsDownloder extends AbstrarctComponent {
 		try {
 			contentsDAO.update(entity);
 		} catch (SQLException e) {
-			Loger.printSQLException(e);
+			Log.printSQLException(e);
 		}
 	}
 

@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 
 public class MySQL implements IindividualSQL {
 
@@ -34,7 +34,7 @@ public class MySQL implements IindividualSQL {
 			while (rs.next()) {
 					String rss = rs.getString("Name");
 				if (0 == table.compareToIgnoreCase(rss)) {
-					Loger.print(table +  "テーブルが存在してるのでDDL投入未実施");
+					Log.print(table +  "テーブルが存在してるのでDDL投入未実施");
 					rs.close();
 					stmt.close();
 					return true;
@@ -42,7 +42,7 @@ public class MySQL implements IindividualSQL {
 			}
 
 		} catch (SQLException e) {
-			Loger.printSQLException(e);
+			Log.printSQLException(e);
 
 			return true; // 例外がおきても何もできないのでtrueを返しておく
 		}

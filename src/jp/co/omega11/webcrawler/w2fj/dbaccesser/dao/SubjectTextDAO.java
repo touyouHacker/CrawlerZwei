@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 import jp.co.omega11.webcrawler.w2fj.entity.SubjectTextEntity;
 
 
@@ -64,7 +64,7 @@ public class SubjectTextDAO extends AbstractBaseDAO  {
 			stmt.close();
 
 		} catch (Exception e) {
-			Loger.print(e);
+			Log.print(e);
 			return;
 		}
 
@@ -122,7 +122,7 @@ public class SubjectTextDAO extends AbstractBaseDAO  {
 			stmt.close();
 
 		} catch (Exception e) {
-			Loger.print(e);
+			Log.print(e);
 			return;
 		}
 	}
@@ -152,7 +152,7 @@ public class SubjectTextDAO extends AbstractBaseDAO  {
 			stmt.close();
 
 		} catch (Exception e) {
-			Loger.print(e);
+			Log.print(e);
 			return;
 		}
 	}
@@ -184,7 +184,7 @@ public class SubjectTextDAO extends AbstractBaseDAO  {
 			stmt.close();
 
 		} catch (Exception e) {
-			Loger.print(e);
+			Log.print(e);
 			return exsistEntitys;
 		}
 
@@ -219,7 +219,7 @@ public class SubjectTextDAO extends AbstractBaseDAO  {
 			stmt.close();
 
 		} catch (Exception e) {
-			Loger.print(e);
+			Log.print(e);
 			return entitys;
 
 		}

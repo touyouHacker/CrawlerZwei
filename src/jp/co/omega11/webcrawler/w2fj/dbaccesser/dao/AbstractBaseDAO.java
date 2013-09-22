@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 
 import jp.co.omega11.universal.util.file.TextUtil;
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 import jp.co.omega11.webcrawler.w2fj.dbaccesser.dao.vendor.IindividualSQL;
 import jp.co.omega11.webcrawler.w2fj.dbaccesser.dao.vendor.MySQL;
 
@@ -76,7 +76,7 @@ public abstract class AbstractBaseDAO {
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			Loger.print(e);
+			Log.print(e);
 			return;
 		}
 	}
@@ -106,11 +106,11 @@ public abstract class AbstractBaseDAO {
 		if(databaseProductName.equals(DbConstant.MYSQL)) {
 		 // ƒtƒ@ƒCƒ‹–¼‚É_Mysql‚Ý‚½‚¢‚É‚Â‚¯‚ÄDDL‚ð‚í‚¯‚é
 			String sql = TextUtil.file2String(DbConstant.DDL_DIRECTORY + "/" + DbConstant.MYSQL + "/" + tableNameHead + ".ddl");
-			Loger.print(sql);
+			Log.print(sql);
 
 			String sql2 = sql.replaceAll("\\?", tableName);
 
-			Loger.print(sql2);
+			Log.print(sql2);
 
 			Statement stmt = con.createStatement();
 

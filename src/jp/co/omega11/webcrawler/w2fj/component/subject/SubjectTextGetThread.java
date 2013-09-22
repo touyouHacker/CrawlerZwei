@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.Calendar;
 
 import jp.co.omega11.universal.util.UniversalUtil;
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 import jp.co.omega11.webcrawler.w2fj.component.AbstrarctComponentThread;
 import jp.co.omega11.webcrawler.w2fj.model.systemInfomation.SubjectComponentInfo;
 import jp.co.omega11.webcrawler.w2fj.model.systemInfomation.ThreadComponentInfo;
@@ -36,7 +36,7 @@ public class SubjectTextGetThread extends AbstrarctComponentThread {
 			con = DriverManager.getConnection(setting.getDbURL(), setting
 					.getDbUser(), setting.getDbPass());
 		} catch (SQLException e) {
-			Loger.print("[SUBJECT] DB接続失敗　→ " + e.toString());
+			Log.print("[SUBJECT] DB接続失敗　→ " + e.toString());
 		}
 
 		int loopCount = 0;
@@ -63,21 +63,21 @@ public class SubjectTextGetThread extends AbstrarctComponentThread {
 				threadComponentInfo.setThreadLoopCount(loopCount);
 				threadComponentInfo.setLastWorkTime(Calendar.getInstance());
 
-				Loger.print(UniversalUtil.nowDate());
+				Log.print(UniversalUtil.nowDate());
 
 				Runtime runtime = Runtime.getRuntime();
 
-				Loger.print("[SUBJECT] 待機モードへ移行します ," + setting.getItaname()
+				Log.print("[SUBJECT] 待機モードへ移行します ," + setting.getItaname()
 						+ " " + loopCount);
 
-				Loger.print("空きメモリ " + runtime.freeMemory());
+				Log.print("空きメモリ " + runtime.freeMemory());
 
-				Loger.flushAll();
+				Log.flushAll();
 
 				Thread.sleep(setting.getInvSubject().getSleepTime());
 			} catch (Exception e) {
 
-				Loger.print(e);
+				Log.print(e);
 
 				// 例外発生したらとりあえず終了
 				return;

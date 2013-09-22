@@ -6,7 +6,7 @@ import java.util.List;
 
 import jp.co.omega11.universal.util.archive.GzipUtil;
 import jp.co.omega11.universal.util.file.TextUtil;
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 import jp.co.omega11.universal.util.net.http.HttpCliantKai;
 import jp.co.omega11.universal.util.net.http.HttpHeaderSave;
 import jp.co.omega11.webcrawler.w2fj.component.AbstrarctComponent;
@@ -91,7 +91,7 @@ public class DatDownloder extends AbstrarctComponent {
 		for (SubjectTextEntity subjectTextEntity : subjectTextEntitys) {
 			
 			// TODO 解析のため
-			Loger.flushAll();
+			Log.flushAll();
 			
 			// wcを書き換える前に前のwcを保持
 			wcHash.put(Integer.valueOf(subjectTextEntity.getId()), Integer
@@ -142,7 +142,9 @@ public class DatDownloder extends AbstrarctComponent {
 
 			// 解凍ストリームをよみ行数を返す
 			int wc = TextUtil.wc(unzipDatFullPathName);
-
+			
+			Log.print("wc=" + wc);
+			
 			// IF文に入らないときはＤＡＴ取得失敗？ＷＣを書き換えなければパースには入らない
 			if (0 <= wc) {
 				subjectTextEntity.setDownloaded(wc);
@@ -169,7 +171,7 @@ public class DatDownloder extends AbstrarctComponent {
 
 		if (set.isNoParseExe()) {
 
-			Loger.print("■ NoParseExeフラグをfalseに設定");
+			Log.print("■ NoParseExeフラグをfalseに設定");
 			set.setNoParseExe(false);
 
 		} else {
@@ -208,7 +210,7 @@ public class DatDownloder extends AbstrarctComponent {
 			// そもそもDAOでsubject.txtの差分があるやつだけ取得してるがsubjectとDATのコンポーネントの時間差で
 			// DATが最新版をとりすぎてる可能性がある (DATが取得したスレ数 > subjectの認識スレ数) ので二重チェック
 
-			Loger.print("行数比較" + wcHash.get(subjectTextEntity.getId()) + " < "
+			Log.print("行数比較" + wcHash.get(subjectTextEntity.getId()) + " < "
 					+ subjectTextEntity.getDownloaded());
 
 			if (wcHash.get(subjectTextEntity.getId()) < subjectTextEntity

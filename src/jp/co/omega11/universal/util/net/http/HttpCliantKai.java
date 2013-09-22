@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import jp.co.omega11.universal.util.UniversalUtil;
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 import jp.co.omega11.webcrawler.w2fj.model.HttpOptionSetModel;
 
 
@@ -135,7 +135,7 @@ public class HttpCliantKai {
 
 		try {
 
-			Loger.print(httpUrl);
+			Log.print(httpUrl);
 			URL url = new URL(httpUrl);
 			HttpURLConnection connect = (HttpURLConnection) url
 					.openConnection();
@@ -152,7 +152,7 @@ public class HttpCliantKai {
 
 					connect.setRequestProperty(s, map.get(s));
 
-					Loger.print(s + " : " + map.get(s));
+					Log.print(s + " : " + map.get(s));
 				}
 			}
 
@@ -163,7 +163,7 @@ public class HttpCliantKai {
 					+ fileName;
 
 
-			Loger.print("HTTP-Kai FileçÏê¨  " + fileFullPath);
+			Log.print("HTTP-Kai FileçÏê¨  " + fileFullPath);
 			File file = new File(fileFullPath);
 
 
@@ -208,9 +208,9 @@ public class HttpCliantKai {
 			httpHeaderSave.setLastModified(connect.getLastModified());
 			httpHeaderSave.setResponseCode(connect.getResponseCode());
 
-			Loger.print("Respons  " + httpHeaderSave.getResponseCode());
-			Loger.print("Length  " + httpHeaderSave.getContentLength());
-			Loger.print("Mofified  " + httpHeaderSave.getLastModified());
+			Log.print("Respons  " + httpHeaderSave.getResponseCode());
+			Log.print("Length  " + httpHeaderSave.getContentLength());
+			Log.print("Mofified  " + httpHeaderSave.getLastModified());
 
 
 
@@ -221,12 +221,12 @@ public class HttpCliantKai {
 				try {
 					randomAccessFile.close();
 				} catch (IOException e1) {
-					Loger.print(e1);
+					Log.print(e1);
 				}
 			}
 
 
-			Loger.print(e);
+			Log.print(e);
 			httpHeaderSave.setException(true);
 			httpHeaderSave.setExceptionMsg(e.getLocalizedMessage());
 		}

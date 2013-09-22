@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -32,7 +32,7 @@ public final class UniversalUtil {
 
 			}
 		} catch (IOException e) {
-			Loger.print(e);
+			Log.print(e);
 		}
 	}
 

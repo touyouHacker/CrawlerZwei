@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 
 /**
  * @author Wizard1
@@ -40,7 +40,7 @@ public final class TextUtil {
 			br.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			Loger.print(e);
+			Log.print(e);
 			return -1;
 		}
 		
@@ -72,7 +72,7 @@ public final class TextUtil {
 
 
 		} catch (Exception e) {
-			Loger.print(e);
+			Log.print(e);
 			return null;
 		}
 

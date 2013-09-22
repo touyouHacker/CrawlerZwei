@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import jp.co.omega11.universal.controller.receivecommand.model.POP3Model;
 import jp.co.omega11.universal.controller.receivecommand.model.SmtpModel;
 import jp.co.omega11.universal.util.UniversalUtil;
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 import jp.co.omega11.universal.util.system.JavaEnviroment;
 import jp.co.omega11.webcrawler.w2fj.constant.Constant;
 import jp.co.omega11.webcrawler.w2fj.dbaccesser.dao.ContentsDAO;
@@ -161,7 +161,7 @@ public class Setting {
 
 		if(pinkRootServer.equals(itaRootAdress)) {
 			pinkFlag = true;
-			Loger.print("BBS-PINK系の板と判定。Datをクローラー用サーバーから取得しません");
+			Log.print("BBS-PINK系の板と判定。Datをクローラー用サーバーから取得しません");
 		}
 
 
@@ -233,14 +233,14 @@ public class Setting {
 		try {
 			loadJDBCdriver();
 		} catch (Exception e) {
-			Loger.print("JDBCドライバのロードに失敗しました、処理を終了します。");
+			Log.print("JDBCドライバのロードに失敗しました、処理を終了します。");
 			throw e;
 		}
 
 		try {
 			checkTable();
 		} catch (SQLException e) {
-			Loger.print("テーブル存在チェック、又はDDL投入処理で失敗しました。処理を終了します。");
+			Log.print("テーブル存在チェック、又はDDL投入処理で失敗しました。処理を終了します。");
 			throw e;
 		}
 
@@ -271,7 +271,7 @@ public class Setting {
 		try {
 			con = DriverManager.getConnection(dbURL, dbUser, dbPass);
 		} catch (SQLException e) {
-			Loger.print(e);
+			Log.print(e);
 			throw e;
 		}
 
@@ -289,7 +289,7 @@ public class Setting {
 			try {
 				con.close();
 			} catch (SQLException e) {
-				Loger.print(e);
+				Log.print(e);
 			}
 		}
 	}
@@ -297,9 +297,9 @@ public class Setting {
 
 	public void logInit() {
 		try {
-			Loger.setFile( Itaname + UniversalUtil.nowDate(), Itaname + UniversalUtil.nowDate());
+			Log.setFile( Itaname + UniversalUtil.nowDate(), Itaname + UniversalUtil.nowDate());
 		} catch (IOException e) {
-			Loger.print(e);
+			Log.print(e);
 		}
 	}
 

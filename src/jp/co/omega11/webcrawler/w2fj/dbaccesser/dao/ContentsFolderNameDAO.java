@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 import jp.co.omega11.webcrawler.w2fj.model.ContentsFolderNameModel;
 
 
@@ -43,7 +43,7 @@ public class ContentsFolderNameDAO {
 			String query = "SELECT DISTINCT S.ID ,S.THREAD_NUMBER, S.TITLE "
 				+ "FROM " + contentsTable + " C, " + subjectTable + " S "
 				+ "WHERE C.EXE_FLAG = "+  DbConstant.DOWNLOAD_DEFAULT + " AND C.DAT_ID = S.ID ";
-			Loger.print(query);
+			Log.print(query);
 			
 			rs = stmt.executeQuery(query);
 			
@@ -60,7 +60,7 @@ public class ContentsFolderNameDAO {
 			stmt.close();
 			
 		} catch (SQLException e) {
-			Loger.printSQLException(e);
+			Log.printSQLException(e);
 		}
 		
 

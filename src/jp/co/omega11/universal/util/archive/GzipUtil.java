@@ -3,7 +3,7 @@ package jp.co.omega11.universal.util.archive;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 
@@ -39,7 +39,7 @@ public final class GzipUtil {
 			out.close();
 			bzIn.close();
 		} catch (Exception e) {
-			Loger.print(e);
+			Log.print(e);
 		}
 	}
 

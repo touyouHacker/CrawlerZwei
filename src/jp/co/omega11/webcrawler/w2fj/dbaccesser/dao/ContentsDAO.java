@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 import jp.co.omega11.webcrawler.w2fj.entity.ContentsEntity;
 
 import org.apache.commons.lang.StringUtils;
@@ -118,7 +118,7 @@ public class ContentsDAO extends AbstractBaseDAO {
 		query += " SET  CONTENT_SIZE = ? ,EXE_FLAG = ? ,HTTP_STATE = ? ,REGEX_HIT_COUNT = ? ,SAVE_DIRECTORY = ? ,RENEWDATE = ? ,RENEW_USER = ? ,FILE_NAME = ? ,DOWN_WORKER_ID = ? ,RESURL_COMMENT = ? ";
 		query += " WHERE CONTENT_ID = ? ";
 
-		Loger.print(query);
+		Log.print(query);
 		
 		PreparedStatement stmt = con.prepareStatement(query);
 
@@ -185,7 +185,7 @@ public class ContentsDAO extends AbstractBaseDAO {
 
 			return entitys;
 		} catch (SQLException e) {
-			Loger.printSQLException(e);
+			Log.printSQLException(e);
 		}
 
 		return null;

@@ -7,7 +7,7 @@ package jp.co.omega11.universal.util.net.mail.pop;
 import java.io.IOException;
 import java.io.Reader;
 
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.net.pop3.POP3Client;
@@ -51,9 +51,9 @@ public class Pop3 extends AbstractPop3 {
 
 		for (int i = 0; i < messages.length ; i++) {
 			int messageId = messages[i].number;
-			Loger.print("ID: " + messageId);
+			Log.print("ID: " + messageId);
 			Reader reder = pop3Client.retrieveMessage(messageId);
-			Loger.print(IOUtils.toString(reder));
+			Log.print(IOUtils.toString(reder));
 			IOUtils.closeQuietly(reder);
 		}
 

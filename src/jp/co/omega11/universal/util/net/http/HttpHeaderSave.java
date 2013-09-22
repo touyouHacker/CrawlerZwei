@@ -3,7 +3,7 @@ package jp.co.omega11.universal.util.net.http;
 import java.util.List;
 import java.util.Map;
 
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 
 
 /**
@@ -74,7 +74,7 @@ public class HttpHeaderSave {
 	 */
 	public void printRespoons() {
 		for(Map.Entry<String,List<String>> map :responshash.entrySet()){
-			 Loger.print(map.getKey()+" : "+map.getValue());
+			 Log.print(map.getKey()+" : "+map.getValue());
 		}
 	}
 

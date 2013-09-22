@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.Calendar;
 
 import jp.co.omega11.universal.util.UniversalUtil;
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 import jp.co.omega11.webcrawler.w2fj.component.AbstrarctComponentThread;
 import jp.co.omega11.webcrawler.w2fj.model.systemInfomation.DatComponentInfo;
 import jp.co.omega11.webcrawler.w2fj.model.systemInfomation.ThreadComponentInfo;
@@ -30,7 +30,7 @@ public class DatDownloderThread extends AbstrarctComponentThread {
 			con = DriverManager.getConnection(setting.getDbURL(), setting
 					.getDbUser(), setting.getDbPass());
 		} catch (SQLException e) {
-			Loger.print("[DAT] DB接続失敗　→ " + e.toString());
+			Log.print("[DAT] DB接続失敗　→ " + e.toString());
 		}
 
 		// 処理クラス作成
@@ -53,22 +53,22 @@ public class DatDownloderThread extends AbstrarctComponentThread {
 
 				Runtime runtime = Runtime.getRuntime();
 
-				Loger.print("[DAT] 待機モードへ移行します ," + setting.getItaname()
+				Log.print("[DAT] 待機モードへ移行します ," + setting.getItaname()
 						+ " " + loopCount);
-				Loger.print("空きメモリ " + runtime.freeMemory());
+				Log.print("空きメモリ " + runtime.freeMemory());
 
-				Loger.print(UniversalUtil.nowDate());
+				Log.print(UniversalUtil.nowDate());
 
-				Loger.flushAll();
+				Log.flushAll();
 
 				// TODO 10分毎だと処理中の時間を考慮できないので処理時間を加味した時間を計算する
 				Thread.sleep(setting.getInvDat().getSleepTime());
 
 			} catch (Exception e) {
-				Loger.print("[DAT]例外発生→");
-				Loger.print(e);
+				Log.print("[DAT]例外発生→");
+				Log.print(e);
 				// 例外発生したらとりあえず終了
-				Loger.print(UniversalUtil.nowDate());
+				Log.print(UniversalUtil.nowDate());
 
 				return;
 			}

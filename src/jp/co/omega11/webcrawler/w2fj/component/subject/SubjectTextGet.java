@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jp.co.omega11.universal.util.UniversalUtil;
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 import jp.co.omega11.webcrawler.w2fj.component.AbstrarctComponent;
 import jp.co.omega11.webcrawler.w2fj.constant.Constant;
 import jp.co.omega11.webcrawler.w2fj.dbaccesser.dao.SubjectTextDAO;
@@ -95,7 +95,7 @@ public class SubjectTextGet extends AbstrarctComponent{
 			fo.close();
 
 		} catch (Exception e) {
-			Loger.print(e);
+			Log.print(e);
 		}
 	}
 
@@ -163,7 +163,7 @@ public class SubjectTextGet extends AbstrarctComponent{
 			br.close();
 			isr.close();
 		} catch (Exception e) {
-			Loger.print("例外発生→ " + e.toString());
+			Log.print("例外発生→ " + e.toString());
 		}
 
 		return enlist;
@@ -177,7 +177,7 @@ public class SubjectTextGet extends AbstrarctComponent{
 
 		// TODO Subject取得失敗防止
 		if(entitys.size() < 100){
-			Loger.print("SubjectText取得失敗");
+			Log.print("SubjectText取得失敗");
 			return;
 		}
 
@@ -223,7 +223,7 @@ public class SubjectTextGet extends AbstrarctComponent{
 		List<SubjectTextEntity> mergeList = new ArrayList<SubjectTextEntity>();
 
 		boolean findflg = false;
-		Loger.print("subjectTEXT=" + nowEntitys.size() + "<>" + " exsist = " +exsistsEntitys.size());
+		Log.print("subjectTEXT=" + nowEntitys.size() + "<>" + " exsist = " +exsistsEntitys.size());
 
 
 		for (SubjectTextEntity nowEntity : nowEntitys) {
@@ -252,11 +252,11 @@ public class SubjectTextGet extends AbstrarctComponent{
 
 			if (findflg == false) {
 
-				Loger.print("INSERT対象　" + nowEntity.getTitle());
+				Log.print("INSERT対象　" + nowEntity.getTitle());
 				mergeList.add(nowEntityClone);
 
 			} else {
-				Loger.print("更新対象　" + nowEntity.getTitle());
+				Log.print("更新対象　" + nowEntity.getTitle());
 				findflg = false;
 			}
 		}
@@ -287,8 +287,8 @@ public class SubjectTextGet extends AbstrarctComponent{
 			}
 		}
 
-		Loger.print("スレッド更新→ " + String.valueOf(alive));
-		Loger.print("スレッド落ち→ " + String.valueOf(death));
+		Log.print("スレッド更新→ " + String.valueOf(alive));
+		Log.print("スレッド落ち→ " + String.valueOf(death));
 
 		//情報登録
 		componentInfo.setThreadUpdateTarget(alive);
@@ -305,7 +305,7 @@ public class SubjectTextGet extends AbstrarctComponent{
 			List<SubjectTextEntity> entitys) {
 
 
-		Loger.print("INSERT数→ " + String.valueOf(entitys.size()));
+		Log.print("INSERT数→ " + String.valueOf(entitys.size()));
 		componentInfo.setThreadInsertTarget(entitys.size());
 
 

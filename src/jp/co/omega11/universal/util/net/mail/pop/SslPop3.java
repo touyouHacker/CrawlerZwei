@@ -12,7 +12,7 @@ import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.Store;
 
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -86,7 +86,7 @@ public class SslPop3 extends AbstractPop3 {
 
 
 		if (folder.isOpen()) {
-			Loger.print("folder is already open");
+			Log.print("folder is already open");
 			return null;
 		}
 		folder.open(Folder.READ_ONLY);
@@ -95,7 +95,7 @@ public class SslPop3 extends AbstractPop3 {
 		Message[] msgs = null;
 		msgs = folder.getMessages();
 		if (msgs.length > 0)
-			Loger.print("mail num=" + msgs.length);
+			Log.print("mail num=" + msgs.length);
 		for (int i = 0; i < msgs.length; i++) {
 			// ƒ[ƒ‹‚Ì‰ðÍ
 
@@ -109,9 +109,9 @@ public class SslPop3 extends AbstractPop3 {
 				returnMsg = StringUtils.chomp(returnMsg);
 
 
-				 Loger.print( (msgs[i].getFrom()[0]).toString() );
-				 Loger.print(msgs[i].getSubject());
-				 Loger.print(returnMsg);
+				 Log.print( (msgs[i].getFrom()[0]).toString() );
+				 Log.print(msgs[i].getSubject());
+				 Log.print(returnMsg);
 
 				//msgs[i].writeTo(System.out);
 

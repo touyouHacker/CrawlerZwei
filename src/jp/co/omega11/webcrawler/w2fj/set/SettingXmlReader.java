@@ -6,7 +6,7 @@ import java.io.FileInputStream;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import jp.co.omega11.universal.util.log.Loger;
+import jp.co.omega11.universal.util.log.Log;
 import jp.co.omega11.webcrawler.w2fj.model.IndividualSetModel;
 
 
@@ -138,10 +138,10 @@ public class SettingXmlReader {
 				}
 			}
 
-			Loger.print(URL);
-			Loger.print(User);
-			Loger.print(Password);
-			Loger.print(ITAURL);
+			Log.print(URL);
+			Log.print(User);
+			Log.print(Password);
+			Log.print(ITAURL);
 
 			set.setDbPass(Password);
 			set.setDbURL(URL);
@@ -149,7 +149,7 @@ public class SettingXmlReader {
 			set.setURL(ITAURL);
 
 		} catch (Exception e) {
-			Loger.print(e);
+			Log.print(e);
 		}
 	}
 

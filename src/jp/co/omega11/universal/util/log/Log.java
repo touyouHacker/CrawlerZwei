@@ -18,7 +18,7 @@ import jp.co.omega11.universal.util.system.JavaEnviroment;
  *
  *         log4j‚ðƒ‰ƒbƒv‚·‚é‚±‚Æ‚à‘z’è
  */
-public class Loger {
+public class Log {
 
 	static BufferedWriter debugBffuerFile = null;
 	static BufferedWriter exceptionBffuerFile = null;
