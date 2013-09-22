@@ -48,10 +48,11 @@ Decide setting.xml file
 
 
 ##Compile
-Use Eclipse
-
+###Use Eclipse
 Main Class = jp.co.omega11.webcrawler.w2fj.MainBoot
 
+###Use Ant
+	ant build.xml
 
 ##Licence
 *GPL v2*
